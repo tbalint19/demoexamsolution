@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article {
+  flex: 1 0 200px;
+}
+
+article img {
+  max-width: 100px;
+}
