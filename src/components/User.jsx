@@ -6,7 +6,7 @@ const User = ({ user }) => {
 
     return (
         <article>
-            <img src={user.avatar_url} alt="" />
+            <img src={user.avatar_url} alt={`avatar of ${user.login}`} />
             <p>{user.login}</p>
             <button onClick={() => setIsShown(!isShown)}>
                 { isShown ? " Show less" : "Show more" }
