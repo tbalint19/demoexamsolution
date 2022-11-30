@@ -1,34 +1,24 @@
 import User from './components/User'
-import { useGithubApi } from './hooks/useGithubApi'
-import { loadUsers } from './api/loadUsers.js'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const App = () => {
-
-  // const users = useGithubApi()
+  
+  const [ search, setSearch ] = useState("")
   const [ users, setUsers ] = useState(null)
 
   const init = async () => {
-      const data = await loadUsers()
-      setUsers(data)
+    const response = await fetch("https://api.github.com/users")
+    const data = await response.json()
+    setUsers(data)
   }
 
   useEffect(() => {
-      setTimeout(() => {
-          init()
-      }, 1000)
+    init()
   }, [])
-  // ---
   
-  const [ search, setSearch ] = useState("")
-
   const filteredUsers = users ? users
     .filter(user => user.login.startsWith(search)) : []
-  /*
-  const filteredUsers = useMemo(() => users ? users
-    .filter(user => user.login.startsWith(search)) : [], [users, search])
-  */
   
   return (
     <>
