@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useInput = (placeHolder) => {
+export const useInput = (placeholder) => {
     const [ value, setValue ] = useState("")
 
     const onChange = (e) => setValue(e.target.value)
@@ -8,6 +8,6 @@ export const useInput = (placeHolder) => {
     return {
         value,
         onChange,
-        placeHolder
+        placeholder
     }
 }

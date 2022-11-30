@@ -10,7 +10,7 @@ const App = () => {
   const { users, loading, error } = useGithubApi()
   
   const filteredUsers = useMemo(() => users ? users
-    .filter(user => user.login.startsWith(search)) : [], [users, search])
+    .filter(user => user.login.startsWith(search.value)) : [], [users, search.value])
   
   return (
     <>

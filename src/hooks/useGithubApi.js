@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react'
 export const useGithubApi = () => {
 
     const [ error, setError ] = useState(false)
-    const [ loading, setloading ] = useState(false)
+    const [ loading, setLoading ] = useState(false)
     const [ users, setUsers ] = useState(null)
 
     const init = async () => {
-        setloading(true)
+        setLoading(true)
         try {
             const data = await loadUsers()
             setUsers(data)
@@ -16,11 +16,12 @@ export const useGithubApi = () => {
         } catch (error) {
             setError(true)
         } finally {
-            setloading(false)
+            setLoading(false)
         }
     }
 
     useEffect(() => {
+        setLoading(true)
         setTimeout(() => {
             init()
         }, 1000)
